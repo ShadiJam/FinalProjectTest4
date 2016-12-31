@@ -3,7 +3,6 @@ export const employeeModel = (
     id
     , fName
     , lName
-    , fullName
     , department
     , position
     , phone

@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 import * as models from './models'
 import {get, post, put, log } from './app'
 import { Button, FormGroup, FormControl, ControlLabel, Navbar, NavDropdown, MenuItem , DateTimeField, DateTimePicker } from 'react-bootstrap';
@@ -172,9 +173,7 @@ export class AdventPage extends Component {
                 </ul>
                 <a href={`#/build/${this.state.id}`}>
                     <button className="build-button">edit</button>
-                </a>
-                    <button className="build-button">send</button>
-                
+                    </a>
             </div>  
     }
 }
@@ -220,6 +219,14 @@ export class AdvanceForm extends Component {
             <ul className="input-fields">
                 <li> <input className="input-fields" onChange={e => this.change(e, "advanceName")} ref="advanceName" placeholder="advance Name" required key={Math.random()} defaultValue={this.props.advance.advanceName || ""} /> </li>
                 <li> <input className="input-fields" onChange={e => this.change(e, "dueDate")} ref="dueDate" type="date" placeholder="due Date " required key={Math.random()} defaultValue={this.props.advance.dueDate || "15/01/2017"} /> </li>
+                <li> <FormGroup onChange={e => this.change(e, "isAssigned")} ref="assigned" controlId="formControlsSelect">
+                          <ControlLabel>Assign Advance</ControlLabel>
+                          <FormControl componentClass="select" placeholder="select">
+                              <option value="select">choose Employee</option>
+                             {this.props.employees.map(e => <option value={e.id}>{e.fName} {e.lName}</option>)}
+                         </FormControl>
+                     </FormGroup>
+                 </li> 
                 <h4>description</h4>
                 <li><textArea className="advance-text" onChange={e => this.change(e, "advanceIntro")} ref="advanceIntro" placeholder="include your advance intro here...for example: 'thank you for being part of YOUR EVENT NAME. In order to ensure your needs are met during the event, please take a moment to fill out the form below. Note that if you need to make any edits after your initial submission, simply follow the link back to this page, fill out the form again, and resubmit. Your information will be updated automatically.'" required key={Math.random()} defaultValue={this.props.advance.advanceIntro || ""}/> </li>
               </ul>

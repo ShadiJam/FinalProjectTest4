@@ -77,6 +77,9 @@ a {
 a:hover {
     color: #420039;
 }
+a:active {
+    color: #420039;
+}
 
 li.key {
     display: inline-block; 
@@ -109,7 +112,7 @@ header#header nav #primary li ul {
 
 /* below gives menu color when hovering */
 header#header nav #primary li:hover > a,
-header#header nav #primary li.active > a {
+header#header nav #primary li:active > a {
   color: #1D1E2C;
   
 }

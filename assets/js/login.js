@@ -165,26 +165,7 @@ export class EmployeeView extends Component {
     }
 }
 
-export class EmployeeList extends Component {
-    constructor(props){
-        super(props)
-        this.state = {
-            items: []
-        }
-    }
-    componentDidMount(){
-        get('/api/employee').then(employees => {
-            this.setState({items: employees})
-        }).catch(e => log(e))
-    }
-    render(){
-        return <div className="advent-element">
-             <h1>your team</h1>
-             <span></span>
-                {this.state.items.map(Employee)}
-            </div>
-    }
-}
+
 
 
 
