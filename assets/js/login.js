@@ -13,25 +13,6 @@ import { update, rootComponent, prop } from './forms'
 import { Nav, Jumbotron, HomeContents, Employee, Advent, Advance, Section, Category, Option, EventLocation, EmployeeTable} from './components'
 import * as models from './models'
 
-// export class DateRender extends Component {
-//     constructor(props){
-//         super(props)
-//         this.state = {
-//         items: []
-//         }
-//     }
-//     change(){
-//     	if(item !== dateTime) return
-        
-//         let item = 
-//         this.setState((dateTime.getMonth()+1) + '/' + 
-//                   dateTime.getDate() + '/' +  
-//                   dateTime.getFullYear())
-//         }
-//     render(){
-//         return <div>{item}</div>
-//     }
-// }
 
 export class LoginForm extends Component {
     constructor(props){
@@ -42,6 +23,10 @@ export class LoginForm extends Component {
     }
      submit(e) {
         e.preventDefault()
+        console.log({
+            email: this.refs.email.value,
+            password: this.refs.password.value
+        })
         post('/account/login', {
             email: this.refs.email.value,
             password: this.refs.password.value
@@ -156,12 +141,16 @@ export class EmployeeView extends Component {
         }
     }
     
-    render(){
-        return <div className="advent-element">
-         <h3>your events</h3>
-         <span></span>
-                {this.state.items.map(Advent)}
-            </div>
+render() {
+        return (
+            <BootstrapTable data= { this.state.items }>
+            
+            <TableHeaderColumn dataField='id' isKey={true}>Event ID</TableHeaderColumn>
+                <TableHeaderColumn dataField='eventName' >Event Name</TableHeaderColumn>
+                <TableHeaderColumn dataField='startDate'  >Start Date</TableHeaderColumn>
+                <TableHeaderColumn dataField='endDate' >End Date</TableHeaderColumn>
+    </BootstrapTable>
+        )
     }
 }
 

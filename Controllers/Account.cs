@@ -39,10 +39,12 @@ public class AccountController : Controller
     [AllowAnonymous]
     public async Task<IActionResult> Login([FromBody] UserView user)
     {
+        Console.WriteLine("hello this is the login");
         if(!ModelState.IsValid)
             return BadRequest(ModelState.ToErrorObject());
 
         string result = await auth.Login(user.Email, user.Password);
+        Console.WriteLine(result);
         if(result == null){
             return Unauthorized();
         }

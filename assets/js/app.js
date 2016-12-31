@@ -2,13 +2,13 @@
 import "babel-polyfill"
 import React, {Component} from 'react'
 import {render} from 'react-dom'
-import {BootstrapTable, TableHeaderColumn, ReactBsTable } from 'react-bootstrap-table';
+import {BootstrapTable, TableHeaderColumn, ReactBsTable, colGroups } from 'react-bootstrap-table';
 import { Button, FormGroup, FormControl, ControlLabel, HelpBlock, Navbar, NavItem, NavDropdown, MenuItem, DateTimePicker, DateTimeField } from 'react-bootstrap';
 import { Router, Route, Link, browserHistory, hashHistory } from 'react-router'
 import { Header, Employee, Advent, Advance, Section, Category, Option, EventLocation } from './components'
 import { Forms, AdventForm, NewEvent, AdventPage, update, rootComponent, prop } from './forms'
 import { LoginForm, RegisterForm, Login, EmployeeView, DateRender } from './login'
-import { Table, CustomToolBarTable } from './tables'
+import { Table } from './tables'
 
 
 import * as Boot from 'react-bootstrap' // read up @ https://react-bootstrap.github.io/components.html
@@ -81,7 +81,7 @@ const reactApp = () =>
             <Route path="/build" component={AdventForm}/>
             <Route path="/build/:id" component={AdventForm}/>
             <Route path="/api/advent/:id" component={AdventPage}/>
-            <Route path="/api/employee" component={CustomToolBarTable}/>
+            <Route path="/api/employee" component={Table}/>
             <Route path="*" component={Error}/>
         </Router>
     </Layout>,

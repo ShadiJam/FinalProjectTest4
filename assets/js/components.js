@@ -23,31 +23,15 @@ export const Header = () =>
     </div>
 
 
-// class EmployeeTable extends Component {
-//   render() {
-//     return (
-//       <BootstrapTable data={ employees } striped hover condensed>
-//         <TableHeaderColumn dataField='fName' isKey>First Name</TableHeaderColumn>
-//         <TableHeaderColumn dataField='lName'>Last Name</TableHeaderColumn>
-//         <TableHeaderColumn dataField='department'>Department</TableHeaderColumn>
-//         <TableHeaderColumn dataField='position'>Position</TableHeaderColumn>
-//         <TableHeaderColumn dataField='phone'>Phone</TableHeaderColumn>
-//         <TableHeaderColumn dataField='email'>Email</TableHeaderColumn>
-//       </BootstrapTable>
-//     )
-//   }
-// }
-
-
 export const Employee = (employee) =>
     <div className="employee">
         <ul className="employee-list">
-        <li> {employee.fName}  ||  </li>
-        <li>{employee.lName}  ||  </li>
-        <li>{employee.department}  ||  </li>
-        <li>{employee.position}  ||  </li>
-        <li>{employee.phone}  ||  </li>
-        <li>{employee.email} </li>
+        <li>{employee.fName}</li>
+        <li>{employee.lName}</li>
+        <li>{employee.department}</li>
+        <li>{employee.position}</li>
+        <li>{employee.phone}</li>
+        <li>{employee.email}</li>
         <span></span>
         </ul>
     </div>
