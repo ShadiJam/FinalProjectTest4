@@ -2,7 +2,7 @@
 import "babel-polyfill"
 import fetch from "isomorphic-fetch"
 import React, {Component} from 'react'
-// import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
+import {BootstrapTable, TableHeaderColumn, InsertRowTable, DeleteRowTable, MultiSearchTable, ExportCSVTable } from 'react-bootstrap-table';
 
 import {render} from 'react-dom'
 import { Button, FormGroup, FormControl, ControlLabel, Navbar, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
@@ -121,6 +121,33 @@ export class Login extends Component {
     }
 }
 
+function onAfterInsertRow(row) {
+    let newRowStr = '';
+    log(e)
+    for (const prop in row) {
+        newRowStr += prop + ': ' + row[prop] + ' \n';
+    }
+    log(e)
+     alert('The new row is:\n ' + newRowStr);
+}
+
+
+export function onAfterDeleteRow(rowKeys) {
+  alert('The rowkey you drop: ' + rowKeys);
+}
+
+const selectRowProp = {
+  mode: 'checkbox'
+}
+
+
+
+const options = {
+  afterInsertRow: onAfterInsertRow,  
+  afterDeleteRow: onAfterDeleteRow,
+  defaultSearch: ''
+};
+
 export class EmployeeView extends Component {
     constructor(props){
         super(props)
@@ -140,12 +167,16 @@ export class EmployeeView extends Component {
         x => window.location.hash = '#/'
         }
     }
+    csvFormatter(cell, row) {
+    return `${row.id}: ${cell} USD`
+  }
+
     
 render() {
         return (
-            <BootstrapTable data= { this.state.items }>
+            <BootstrapTable data= { this.state.items } search={ true } exportCSV={true} deleteRow={ true } selectRow={ selectRowProp } insertRow={ true } options={ options }>
             
-            <TableHeaderColumn dataField='id' isKey={true}>Event ID</TableHeaderColumn>
+            <TableHeaderColumn dataField='id' isKey={true} >Event ID</TableHeaderColumn>
                 <TableHeaderColumn dataField='eventName' >Event Name</TableHeaderColumn>
                 <TableHeaderColumn dataField='startDate'  >Start Date</TableHeaderColumn>
                 <TableHeaderColumn dataField='endDate' >End Date</TableHeaderColumn>
