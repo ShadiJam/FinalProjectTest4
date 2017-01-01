@@ -120,14 +120,17 @@ export class Login extends Component {
         )
     }
 }
+export const cellEditProp = {
+  mode: 'click',
+  blurToSave: true
+};
 
-function onAfterInsertRow(row) {
+
+export function onAfterInsertRow(row) {
     let newRowStr = '';
-    log(e)
     for (const prop in row) {
         newRowStr += prop + ': ' + row[prop] + ' \n';
     }
-    log(e)
      alert('The new row is:\n ' + newRowStr);
 }
 
@@ -136,13 +139,11 @@ export function onAfterDeleteRow(rowKeys) {
   alert('The rowkey you drop: ' + rowKeys);
 }
 
-const selectRowProp = {
+export const selectRowProp = {
   mode: 'checkbox'
 }
 
-
-
-const options = {
+export const options = {
   afterInsertRow: onAfterInsertRow,  
   afterDeleteRow: onAfterDeleteRow,
   defaultSearch: ''
@@ -174,7 +175,7 @@ export class EmployeeView extends Component {
     
 render() {
         return (
-            <BootstrapTable data= { this.state.items } search={ true } exportCSV={true} deleteRow={ true } selectRow={ selectRowProp } insertRow={ true } options={ options }>
+            <BootstrapTable data= { this.state.items } search={ true } exportCSV={true} cellEdit={ cellEditProp } deleteRow={ true } selectRow={ selectRowProp } insertRow={ true } options={ options }>
             
             <TableHeaderColumn dataField='id' isKey={true} >Event ID</TableHeaderColumn>
                 <TableHeaderColumn dataField='eventName' >Event Name</TableHeaderColumn>
