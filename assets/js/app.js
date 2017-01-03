@@ -2,12 +2,10 @@
 import "babel-polyfill"
 import React, {Component} from 'react'
 import {render} from 'react-dom'
-import {BootstrapTable, TableHeaderColumn, ReactBsTable, colGroup
-    
 
-
- } from 'react-bootstrap-table';
-import { Button, FormGroup, FormControl, ControlLabel, HelpBlock, Navbar, NavItem, NavDropdown, MenuItem, DateTimePicker, DateTimeField } from 'react-bootstrap';
+import 'moment'
+import {BootstrapTable, TableHeaderColumn, ReactBsTable, colGroup } from 'react-bootstrap-table';
+import { Button, FormGroup, FormControl, ControlLabel, HelpBlock, Navbar, NavItem, NavDropdown, MenuItem } from 'react-bootstrap'
 import { Router, Route, Link, browserHistory, hashHistory } from 'react-router'
 import { Header, Employee, Advent, Advance, Section, Category, Option, EventLocation } from './components'
 import { Forms, AdventForm, NewEvent, AdventPage, update, rootComponent, prop } from './forms'
@@ -64,7 +62,9 @@ export const log = (...a) => console.log(...a)
 
 export const Error = () => <div>Page Not Found</div>
 
+export const date = () => <Datetime />
 
+export const moment = require('moment');
 
 const Layout = ({children}) => 
         <div>

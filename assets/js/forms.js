@@ -1,13 +1,13 @@
 import React, {Component} from 'react'
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 import * as models from './models'
-import {get, post, put, log } from './app'
-import { Button, FormGroup, FormControl, ControlLabel, Navbar, NavDropdown, MenuItem , DateTimeField, DateTimePicker } from 'react-bootstrap';
+import {get, post, put, log, date } from './app'
+import { Button, FormGroup, FormControl, ControlLabel, Navbar, NavDropdown, MenuItem } from 'react-bootstrap';
 // import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
-import { DateRender } from './login'
 import * as components from './components'
 import { Employee, Advance, Advent, Section, Category, Option, RootObject, Result, EventLocation, EmployeeTable } from './components'
 
+import 'moment'
 let prop = (rootComponent) => 
     (v) => 
         v===undefined ? (rootComponent && rootComponent.forceUpdate()) : (rootComponent=v)
@@ -104,10 +104,10 @@ export class AdventForm extends Component {
                  <input className="input-fields" onBlur={e => this.change(e, "eventName")} ref="eventName" placeholder="event name" required key={Math.random()} defaultValue={this.state.eventName || ""} />
                 </div>
                 <div className="title"><h4>start Date</h4>
-                 <input className="input-fields" onBlur={e => this.change(e, "startDate")} type="date" ref="startDate" format="MM/DD/YYYY"placeholder="Start Date" required key={Math.random()} defaultValue={this.state.startDate || ""} />
+                 <input className="input-fields" onBlur={e => this.change(e, "startDate")} type="Date" ref="startDate" format="MM/DD/YYYY"placeholder="Start Date" required key={Math.random()} defaultValue={this.state.startDate || ""} />
                 </div>
                 <div className="title"><h4>end Date</h4>
-                 <input className="input-fields" onBlur={e => this.change(e, "31/01/2017")} type="date" ref="endDate" placeholder="end date" format="MM/DD/YYYY" required key={Math.random()} defaultValue={this.state.endDate || ""} /> 
+                 <input className="input-fields" onBlur={e => this.change(e, "31/01/2017")} type="Date" ref="endDate" placeholder="end date" format="MM/DD/YYYY" required key={Math.random()} defaultValue={this.state.endDate || ""} /> 
                 </div>
             </div>
             <ul>

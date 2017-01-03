@@ -7,7 +7,7 @@ import {BootstrapTable, TableHeaderColumn, InsertRowTable, DeleteRowTable, Multi
 import {render} from 'react-dom'
 import { Button, FormGroup, FormControl, ControlLabel, Navbar, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 import { Router, Route, Link, browserHistory, hashHistory } from 'react-router'
-import { get, post, log, Error, Layout, reactapp } from './app'
+import { get, post, log, Error, Layout, reactapp, date, moment } from './app'
 import Forms from './forms'
 import { update, rootComponent, prop } from './forms'
 import { Nav, Jumbotron, HomeContents, Employee, Advent, Advance, Section, Category, Option, EventLocation, EmployeeTable} from './components'
