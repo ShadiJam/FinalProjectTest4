@@ -45,25 +45,3 @@ export class Table extends Component {
     }
 }
 
-
-
-/*
-createCustomToolBar(props) {
-        return (
-            <div style={ { margin: '15px'} }>
-            { props.components.btnGroup }
-            <div className='col-xs-8 col-sm-4 col-lg-2'>
-            { props.components.searchPanel }
-            </div>
-        </div>
-        )
-    }
-  
-
-options={ options }
-            selectRow={ selectRow }
-            insertRow
-            deleteRow
-            exportCSV
-            search>
-            */
