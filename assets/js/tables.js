@@ -11,7 +11,7 @@ import { Button, FormGroup, FormControl, ControlLabel, HelpBlock, Navbar, NavIte
 
 import { Router, Route, Link, browserHistory, hashHistory } from 'react-router'
 import { Forms, AdventForm, NewEvent, AdventPage, update, rootComponent, prop } from './forms'
-import { LoginForm, RegisterForm, Login, EmployeeView, DateRender, onAfterInsertRow, onAfterDeleteRow, selectRowProp, options } from './login'
+import { LoginForm, RegisterForm, Login, EmployeeView, onAfterInsertRow, onAfterDeleteRow, selectRowProp, options } from './login'
 
 export class Table extends Component {
     constructor(props){
